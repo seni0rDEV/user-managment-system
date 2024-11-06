@@ -1,0 +1,46 @@
+<div class="signup-container">
+    <div class="signup-header">
+      <h1>Sign up</h1>
+    </div>
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="form-group">
+        <h1 class="signup-heading">Signup</h1>
+        <label for="name">Name</label>
+        <input formControlName="name" type="text" id="name" placeholder="Enter your name" required>
+        @if(form.get('name')?.invalid && form.get('name')?.touched) {
+        
+        <div>
+          @if(form.get('name')?.errors?.['required']){
+            <small class="error-color">Name is required.</small>
+          }
+        </div> 
+      }
+      </div>
+       <div class="form-group">
+        <label for="email">Email</label>
+        <input formControlName="email" type="text" id="email" placeholder="Enter your email" required>
+         @if(form.get('email')?.invalid && form.get('email')?.touched) {
+        
+        <div>
+          @if(form.get('email')?.errors?.['required']){
+            <small class="error-color">Email is required.</small>
+          }
+        </div> 
+      }
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" id="password" placeholder="Enter your password" required>
+         @if(form.get('password')?.invalid && form.get('password')?.touched) {
+        
+        <div>
+          @if(form.get('password')?.errors?.['required']){
+            <small class="error-color">Password is required.</small>
+          }
+        </div> 
+      }
+      </div>
+      <button type="submit" class="btn-primary" [disabled]="form.invalid">Sign up</button>
+      <!-- <a href="#" class="forgot-password">Forgot your password?</a> -->
+    </form>
+  </div>

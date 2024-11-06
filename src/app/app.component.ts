@@ -13,5 +13,5 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng17-crud-app';
+  title = 'crud app';
 }

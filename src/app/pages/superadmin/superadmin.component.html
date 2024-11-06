@@ -1,0 +1,56 @@
+<div class="superadmin-container">
+  <h2>User Management</h2>
+
+  <!-- Display any error messages -->
+  <!-- <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div> -->
+
+  <!-- Select user and role -->
+  <form (ngSubmit)="onChangeRole()" #roleForm="ngForm">
+    <div>
+      <label for="user">Select User:</label>
+      <select
+        id="user"
+        [(ngModel)]="selectedUserId"
+        name="user"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option *ngFor="let user of users" [value]="user._id">{{ user.name }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="role">Select Role:</label>
+      <select
+        id="role"
+        [(ngModel)]="selectedRole"
+        name="role"
+        required
+        [ngModelOptions]="{ standalone: true }"
+      >
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+        <option value="superadmin">Superadmin</option>
+      </select>
+    </div>
+
+    <!-- <button type="submit" [disabled]="!selectedUserId || !selectedRole">Change Role</button> -->
+    <button id="add-emp-btn" type="submit" 
+    class="text-white bg-blue-900 hover:bg-gray-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2 " [disabled]="!selectedUserId || !selectedRole">Log out 
+</button>
+  </form>
+
+  <!-- List of users -->
+  <div class="user-list">
+    <h3>All Users</h3>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.name }} - Role: {{ user.role }}
+      </li>
+    </ul>
+  </div>
+  <!-- <button type="button" class="logout-btn" id="logout-id" (click)="logout()">Logout</button> -->
+   <button id="add-emp-btn" type="button" (click)="logout()"
+    class="text-white bg-blue-900 hover:bg-gray-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2 ">Log out 
+</button>
+</div>

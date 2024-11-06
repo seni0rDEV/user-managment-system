@@ -1,0 +1,31 @@
+.logout-btn{
+  border: 2px solid black;
+  background: rgba(0, 0, 255, 0.493);
+  font-size: 25px;
+  font-style: italic;
+  color: white;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+
+.logout-btn:hover{
+  background: beige;
+  color: red;
+}
+
+// .add-emp-btn {
+//   margin-bottom: 100px !important;
+// }
+#table-div {
+  // position: relative; // Necessary to use transform
+  transform: translateY(5rem); // Adjust the value to move it down
+}
+
+#add-emp-btn {
+  transform: translateY(5.5rem); 
+}
+
+#logout-id{
+  transform: translateY(5.5rem)
+}

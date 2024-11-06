@@ -1,0 +1,101 @@
+// Variables
+$primary-color: #007bff;
+$primary-hover-color: #0056b3;
+$background-color: #f0f2f5;
+$container-background: #ffffff;
+$border-color: #ccc;
+$text-color: #333;
+$error-color: #ff0000;
+
+// Body styling
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+// Container styling
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; // Full viewport height
+  // background-color: #f4f4f4; 
+  padding: 1rem; // Padding to ensure spacing on smaller screens
+
+  .signup-header {
+    margin-bottom: 2rem; // Space below the header
+    h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+  }
+.login-heading{
+  align-items: cente;
+}
+  form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; // Max width of the form
+    width: 100%; // Full width of container up to max-width
+    transform: translateY(-7rem);
+    // margin-left: 5rem;
+    .form-group {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .error-color {
+        color: #d9534f; // Red color for errors
+        font-size: 0.875rem;
+      }
+    }
+
+    .form-check {
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &:disabled {
+        background-color: #c0c0c0;
+        cursor: not-allowed;
+      }
+    }
+
+    .error-message {
+      color: #d9534f; // Red color for general errors
+      margin-top: 1rem;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
+
+
