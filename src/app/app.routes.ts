@@ -13,29 +13,33 @@ import ResetpasswordComponent from './pages/resetpassword/resetpassword.componen
 // import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';
 // import { superAdmin } from '../../api/src/users/UserController';
 
-
 export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
+      { path: '',
+         redirectTo: 'login',
+          pathMatch: 'full'
+      },
+      
       {
         path: 'login',
         // redirectTo: 'admin',
         component: LoginComponent,
         canActivate: [guestGuard],
       },
-      {
-        path: 'register',
-        component: RegisterComponent,
-        canActivate: [guestGuard],
-      },
- 
+      // {
+      //   path: 'register',
+      //   component: RegisterComponent,
+      //   canActivate: [guestGuard],
+      // },
+
       {
         path: 'forgetpassword',
         component: ForgetPasswordComponent,
         canActivate: [guestGuard],
-      }, 
+      },
 
       {
         path: 'resetpassword/:token',
@@ -51,9 +55,23 @@ export const routes: Routes = [
       },
       {
         path: 'admin',
-        data: { role: 'admin' },
         component: EmployeeComponent,
+        data: { role: 'admin' },
         canActivate: [authGuard],
+        // children: [
+        //   {
+        //     path: 'register',
+        //     component: RegisterComponent,
+        //     canActivate: [authGuard],
+        //     data: { role: 'admin' },
+        //   },
+        // ],
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [authGuard],
+        data: { role: 'admin' },
       },
       {
         path: 'superadmin',
@@ -61,15 +79,6 @@ export const routes: Routes = [
         component: SuperadminComponent,
         canActivate: [authGuard],
       },
-      // {
-      //   path: '',
-      //   redirectTo: 'unauthorized',
-      // },
     ],
   },
-  // {
-  //   path: 'login',
-  //   redirectTo: 'employee',
-  // },
 ];
-

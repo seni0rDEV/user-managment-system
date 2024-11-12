@@ -14,12 +14,12 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './employee.component.scss',
 })
 export class EmployeeComponent implements OnInit {
-   authService = inject(AuthService)
+  authService = inject(AuthService);
 
-    logout() {
-      // console.log('hey')
-      this.authService.logout();
-    }
+  logout() {
+    // console.log('hey')
+    this.authService.logout();
+  }
 
   isModelOpen = false;
   employees: IEmployee[] = [];
@@ -66,4 +66,6 @@ export class EmployeeComponent implements OnInit {
     this.isModelOpen = false;
     this.getAllEmployee();
   }
+
+  
 }
