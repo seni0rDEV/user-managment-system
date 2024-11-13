@@ -202,7 +202,7 @@ const forgotPassword = async (req: Request, res: Response, next: NextFunction) =
     });
 
     // const resetUrl = `${req.protocol}://${req.get('host')}/reset-password/${resetToken}`;
-    const resetUrl = `http://localhost:4200/resetpassword/${resetToken}`;
+    const resetUrl = `http://localhost:3500/resetpassword/${resetToken}`;
 
 
     const mailOptions = {

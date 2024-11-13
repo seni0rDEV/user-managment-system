@@ -4,7 +4,7 @@
     </div>
     <form [formGroup]="form" (submit)="onSubmit()">
       <div class="form-group">
-        <h1 class="signup-heading">Signup</h1>
+        <h1 class="signup-heading">Register</h1>
         <label for="name">Name</label>
         <input formControlName="name" type="text" id="name" placeholder="Enter your name" required>
         @if(form.get('name')?.invalid && form.get('name')?.touched) {

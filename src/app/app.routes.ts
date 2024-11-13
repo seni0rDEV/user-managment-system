@@ -25,7 +25,7 @@ export const routes: Routes = [
       
       {
         path: 'login',
-        // redirectTo: 'admin',
+        // redirectTo: '',
         component: LoginComponent,
         canActivate: [guestGuard],
       },

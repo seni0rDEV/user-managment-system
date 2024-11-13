@@ -61,11 +61,21 @@ export class LoginComponent {
       .subscribe({
         next: (response) => {
           this.toastr.success('Login successful!', 'Success');
-          this.router.navigate(['']);
-          // ***********************************
-          
-          //************************************
-          console.log(response);
+
+          // conditional navigation based on the user's role
+          const userRole = response.data.role as UserRole;
+          if (userRole === 'superadmin') {
+            this.router.navigate(['superadmin']);
+          } else if (userRole === 'admin') {
+            this.router.navigate(['admin']);
+          } else if (userRole === 'user') {
+            this.router.navigate(['user']);
+          } else {
+            // Default route if the role doesn't match any expected value
+            this.router.navigate(['']);
+          }
+
+          // console.log(response);
         },
       });
   }

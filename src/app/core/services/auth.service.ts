@@ -12,7 +12,7 @@ import { ApiEndpoint, LocalStorage } from '../constants/constants';
 import { catchError, map, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-export type UserRole = 'user' | 'superadmin' | 'admin';
+export type UserRole = 'user' | 'superadmin' | 'admin'; 
 
 @Injectable({
   providedIn: 'root',
