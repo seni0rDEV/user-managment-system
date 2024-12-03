@@ -129,6 +129,13 @@ export class AuthService {
       .pipe(catchError((error) => this.handleError(error)));
   }
 
+  // verify user
+  verifyUser(userId: string) {
+    return this._http
+      .post<ApiResponse<User>>(`${ApiEndpoint.User.All}/${userId}/verify`, {})
+      .pipe(catchError(this.handleError));
+  }
+
   // Handle HTTP errors
   private handleError(error: any) {
     let errorMessage = 'An unknown error occurred!';

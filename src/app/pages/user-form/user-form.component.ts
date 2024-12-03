@@ -5,7 +5,7 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { IEmployee } from '../shared/models/Employee';
+import { IEmployee } from '../../models/Employee';
 import {
   FormGroup,
   FormBuilder,
@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { CommonModule, formatDate } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { EmployeeService } from '../../services/employee.service';
+import { EmployeeService } from '../../core/services/employee.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -25,12 +25,11 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.scss',
 })
-export class UserFormComponent implements OnChanges{
-@Input() data: IEmployee | null = null;
+export class UserFormComponent implements OnChanges {
+  @Input() data: IEmployee | null = null;
   @Output() onCloseModel = new EventEmitter();
 
   employeeForm!: FormGroup;
-
 
   constructor(
     private fb: FormBuilder,
@@ -90,6 +89,4 @@ export class UserFormComponent implements OnChanges{
     this.employeeForm.reset();
     this.onClose();
   }
-
-
 }

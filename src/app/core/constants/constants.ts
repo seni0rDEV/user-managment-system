@@ -19,6 +19,9 @@ export const ApiEndpoint = {
   ConfirmPassword: {
     Resetpassword: `${apiUrl}/users/resetpassword`,
   },
+  UserVerification: {
+    verifyuser: `${apiUrl}/users/:userId/verify`,
+  }
 };
 
 export const LocalStorage = {

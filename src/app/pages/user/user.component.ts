@@ -2,26 +2,26 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ModelComponent } from '../shared/ui/model/model.component';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ToastrService } from 'ngx-toastr';
-import { EmployeeService } from '../../services/employee.service';
-import { IEmployee } from '../shared/models/Employee';
+import { EmployeeService } from '../../core/services/employee.service';
+import { IEmployee } from '../../models/Employee';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [ModelComponent, EmployeeFormComponent],
+  imports: [ModelComponent, EmployeeFormComponent, CommonModule, NgIf],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })
 export class UserComponent implements OnInit {
-  
-   authService = inject(AuthService)
+  authService = inject(AuthService);
 
-    logout() {
-      // console.log('hey')
-      this.authService.logout();
-    }
+  logout() {
+    // console.log('hey')
+    this.authService.logout();
+  }
 
   isModelOpen = false;
   employees: IEmployee[] = [];
@@ -68,5 +68,4 @@ export class UserComponent implements OnInit {
     this.isModelOpen = false;
     this.getAllEmployee();
   }
-
 }

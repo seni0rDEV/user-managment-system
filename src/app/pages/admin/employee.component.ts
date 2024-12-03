@@ -2,14 +2,15 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ModelComponent } from '../shared/ui/model/model.component';
 import { EmployeeFormComponent } from '../employee-form/employee-form.component';
 import { ToastrService } from 'ngx-toastr';
-import { EmployeeService } from '../../services/employee.service';
-import { IEmployee } from '../shared/models/Employee';
+import { EmployeeService } from '../../core/services/employee.service';
+import { IEmployee } from '../../models/Employee';
 // import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { CommonModule, NgIf } from '@angular/common';
 @Component({
   selector: 'app-employee',
   standalone: true,
-  imports: [ModelComponent, EmployeeFormComponent],
+  imports: [ModelComponent, EmployeeFormComponent, CommonModule, NgIf],
   templateUrl: './employee.component.html',
   styleUrl: './employee.component.scss',
 })
@@ -67,5 +68,46 @@ export class EmployeeComponent implements OnInit {
     this.getAllEmployee();
   }
 
+  verifyUser(userId: string | undefined) {
+    console.log('User ID received:', userId); 
+     if (typeof userId !== 'string') {
+       console.error('Invalid user ID:', userId);
+       return;
+     }
+
+    this.authService.verifyUser(userId).subscribe({
+      next: (response) => {
+        if (response.status) {
+          this.toastr.success('verification email sent sucessfully!','Sucess');
+          // const user = this.employees.find((emp) => emp._id === userId);
+          // if (user) user.verified = true; // Update the local state
+        }
+      },
+      error: (err) => {
+        console.error('Verification failed', err);
+         this.toastr.success('verification failed!', 'Failed');
+      },
+    });
+  }
+
+  // verifyUser(token: string) {
+  //   if (!token) {
+  //     console.error('No resetPasswordToken available');
+  //     return;
+  //   }
+
+  //   this.authService.verifyUser(token).subscribe({
+  //     next: (response) => {
+  //       if (response.status) {
+  //         // Update local employee state upon successful verification
+  //         const user = this.employees.find((emp) => emp.resetPasswordToken === token);
+  //         if (user) user.verified = true;
+  //       }
+  //     },
+  //     error: (err) => {
+  //       console.error('Verification failed', err);
+  //     },
+  //   });
+  // }
   
 }

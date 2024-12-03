@@ -15,9 +15,9 @@ db();
 //   res.json({ message: 'application is working fine'});
 // });
 
-app.use('/api/users', UserRoute)
+app.use('/api/users', UserRoute) 
 
-app.listen(config.port, () => {
+app.listen(config.port, () => { 
   console.log(`Server is running on port: ${config.port}`);
 });
 

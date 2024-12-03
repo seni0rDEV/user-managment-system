@@ -5,7 +5,7 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import { IEmployee } from '../shared/models/Employee';
+import { IEmployee } from '../../models/Employee';
 import {
   FormGroup,
   FormBuilder,
@@ -15,7 +15,7 @@ import {
 } from '@angular/forms';
 import { CommonModule, formatDate } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { EmployeeService } from '../../services/employee.service';
+import { EmployeeService } from '../../core/services/employee.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-employee-form',
@@ -41,6 +41,7 @@ export class EmployeeFormComponent implements OnChanges {
       mobile: new FormControl('', [Validators.required]),
       dob: new FormControl('', [Validators.required]),
       doj: new FormControl('', [Validators.required]),
+      role: new FormControl('', [Validators.required]),
     });
   }
 
@@ -54,8 +55,9 @@ export class EmployeeFormComponent implements OnChanges {
         name: this.data.name,
         email: this.data.email,
         mobile: this.data.mobile,
-        dob: formatDate(this.data.dob, 'yyyy-MM-dd', 'en'),
-        doj: this.data.doj,
+        dob: this.data.dob ? formatDate(this.data.dob, 'yyyy-MM-dd', 'en') : '', //to handle dob undefined
+        doj: this.data.doj, 
+        role: this.data.role,
       });
     }
   }
@@ -89,4 +91,3 @@ export class EmployeeFormComponent implements OnChanges {
     this.onClose();
   }
 }
-

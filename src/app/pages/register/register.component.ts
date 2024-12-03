@@ -39,7 +39,7 @@ export class RegisterComponent {
       this.authService.register(this.form.value).subscribe({
         next: (response) => {
           this.toastr.success('Registration successful!');
-          this.router.navigate(['login']);
+          this.router.navigate(['admin']);
         },
         error: (err) => {
           this.toastr.error('user exists.');

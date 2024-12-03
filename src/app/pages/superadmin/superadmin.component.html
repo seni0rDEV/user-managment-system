@@ -15,7 +15,7 @@
         required
         [ngModelOptions]="{ standalone: true }"
       >
-        <option *ngFor="let user of users" [value]="user._id">{{ user.name }}</option>
+        <option *ngFor="let user of users" [value]="user._id">{{ user.email }}</option>
       </select>
     </div>
 
@@ -49,6 +49,14 @@
       </li>
     </ul>
   </div>
+   <mat-paginator
+    [length]="totalUsers"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    (page)="onPageChange($event)"
+    aria-label="Select page">
+  </mat-paginator>
+
   <!-- <button type="button" class="logout-btn" id="logout-id" (click)="logout()">Logout</button> -->
    <button id="add-emp-btn" type="button" (click)="logout()"
     class="text-white bg-blue-900 hover:bg-gray-800 focus:outline-none font-medium rounded-full px-6 py-3 text-center mb-2 ">Log out 

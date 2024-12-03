@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiResponse, IEmployee } from '../pages/shared/models/Employee';
+import { ApiResponse, IEmployee } from '../../models/Employee';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
-  apiurl = 'http://localhost:4000/employee';
+  apiurl = 'http://localhost:5513/api/users/employee';
   constructor(private http: HttpClient) {}
 
   getAllEmployee(): Observable<ApiResponse<IEmployee[]>> {
     return this.http.get<ApiResponse<IEmployee[]>>(`${this.apiurl}`);
+    // console.log(response.data);
   }
 
   getEmployee(id: string): Observable<ApiResponse<IEmployee>> {
@@ -30,5 +31,3 @@ export class EmployeeService {
     return this.http.delete<ApiResponse<any>>(`${this.apiurl}/${id}`);
   }
 }
-
-

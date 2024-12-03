@@ -5,7 +5,7 @@ import { LayoutComponent } from './pages/shared/layout/layout.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { authGuard } from './core/guards/auth.guard';
 import { guestGuard } from './core/guards/guest.guard';
-import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
+// import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { UserComponent } from './pages/user/user.component';
 import { SuperadminComponent } from './pages/superadmin/superadmin.component';
 import { ForgetPasswordComponent } from './pages/forget-password/forget-password.component';

@@ -7,6 +7,8 @@ const db = async () =>{
   }).catch((error)=>{
     console.error('Error occurred while trying to connect to dabase: ', error)
   })
-} 
+
+  // mongoose.set('debug', true);
+}  
 
 export default db;

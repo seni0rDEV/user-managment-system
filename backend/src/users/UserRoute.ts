@@ -12,11 +12,28 @@
 // export default UserRoute;
 
 import express from 'express';
-import { register, login, admin , superAdmin,getUsers, updateUserRole, forgotPassword, resetPassword} from './UserController';
+import { register, login, admin , superAdmin,getUsers, updateUserRole, forgotPassword, resetPassword, getAllEmployee,
+getEmployee,
+createEmployee,
+verifyUser,
+updateEmployee,
+deleteEmployee} from './UserController';
 
 import authenticate from '../middlewares/authenticate';
 
 const UserRoute = express.Router();
+
+// routes for crud-operation
+UserRoute.get('/employee', getAllEmployee);
+UserRoute.post('/employee', createEmployee);
+UserRoute.put('/employee/:id', updateEmployee);
+UserRoute.delete('/employee/:id', deleteEmployee);
+
+// // User-specific route for verified users to view/edit their employee record
+// UserRoute.get('/employee/:id', getEmployee);
+
+UserRoute.post('/:userId/verify', verifyUser);
+
 
 // Public routes
 UserRoute.post('/register', register);

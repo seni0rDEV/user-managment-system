@@ -41,7 +41,8 @@
     class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
 </form> -->
 
-<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white">Employee Details</h5>
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+  User Details</h5>
 <form [formGroup]="employeeForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
   <div class="mb-5">
     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -57,27 +58,38 @@
       Email is required
     </div>
   </div>
-  <div class="mb-5">
+  <!-- <div class="mb-5">
     <label for="mobile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mobile</label>
     <input type="text" id="mobile" class="form-control" placeholder="Mobile" formControlName="mobile">
     <div *ngIf="employeeForm.get('mobile')?.hasError('required') && employeeForm.get('mobile')?.touched" class="form-error">
       Mobile is required
     </div>
-  </div>
-  <div class="mb-5">
+  </div> -->
+
+
+  <!-- <div class="mb-5">
+    <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
+    <input type="text" id="name" class="form-control" placeholder="role" formControlName="role">
+    <div *ngIf="employeeForm.get('role')?.hasError('required') && employeeForm.get('role')?.touched" class="form-error">
+      role is required
+    </div>
+  </div> -->
+
+
+  <!-- <div class="mb-5">
     <label for="dob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
     <input type="date" id="dob" class="form-control" placeholder="" formControlName="dob">
     <div *ngIf="employeeForm.get('dob')?.hasError('required') && employeeForm.get('dob')?.touched" class="form-error">
       Date of Birth is required
     </div>
-  </div>
-  <div class="mb-5">
+  </div> -->
+  <!-- <div class="mb-5">
     <label for="doj" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Joining</label>
     <input type="date" id="doj" class="form-control" placeholder="" formControlName="doj">
     <div *ngIf="employeeForm.get('doj')?.hasError('required') && employeeForm.get('doj')?.touched" class="form-error">
       Date of Joining is required
     </div>
-  </div>
+  </div> -->
   <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
   <button type="button" (click)="onClose()" class="text-white ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancel</button>
 </form>

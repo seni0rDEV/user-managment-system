@@ -16,11 +16,22 @@ const UserSchema = new mongoose.Schema<User>(
       type: String,
       required: true,
     },
+    mobile: {
+      type: String,
+      required: false,
+    },
+
     role: {
       type: String,
       required: true,
       enum: ['user', 'admin', 'superadmin'],
     },
+
+    verified: {
+      type: Boolean,
+      default: false, // Default is unverified
+    },
+    
     dob: {
       type: String,
       required: false,
@@ -59,4 +70,4 @@ const UserSchema = new mongoose.Schema<User>(
 );
 
 
-export default mongoose.model<User>('User', UserSchema);
+export default mongoose.model<User>('User', UserSchema); 
